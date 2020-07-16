@@ -29,9 +29,3 @@ class RateLimitAdminSite(AdminSite):  # noqa
             'template_name': self.login_template or 'admin/login.html',
         }
         return login(request, **defaults)
-
-
-site = RateLimitAdminSite()
-
-for model, admin in django_site._registry.items():
-    site.register(model, admin.__class__)
