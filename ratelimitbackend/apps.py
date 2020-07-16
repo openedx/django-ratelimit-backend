@@ -1,9 +1,18 @@
 from django.contrib.admin import AdminSite
 from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.contrib.admin import site as django_site
 from django.utils.translation import ugettext as _
 
 from .forms import AdminAuthenticationForm
 from .views import login
+
+
+class DjangoRatelimitBackendConfig(AppConfig):
+    name = 'ratelimit'
+
+    def ready():
+        for model, admin in django_site._registry.items():
+            site.register(model, admin.__class__)
 
 
 class RateLimitAdminSite(AdminSite):  # noqa
