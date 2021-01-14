@@ -3,7 +3,7 @@
 from django.contrib.admin import *  # noqa
 from django.contrib.admin import site as django_site
 from django.contrib.auth import REDIRECT_FIELD_NAME
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from .forms import AdminAuthenticationForm
 from .views import login
@@ -18,8 +18,8 @@ class RateLimitAdminSite(AdminSite):  # noqa
             'title': _('Log in'),
             'app_path': request.get_full_path(),
         }
-        if (REDIRECT_FIELD_NAME not in request.GET and
-                REDIRECT_FIELD_NAME not in request.POST):
+        if REDIRECT_FIELD_NAME not in request.GET and REDIRECT_FIELD_NAME \
+                not in request.POST:
             context[REDIRECT_FIELD_NAME] = request.get_full_path()
         context.update(extra_context or {})
         defaults = {

@@ -9,7 +9,7 @@ class CustomAuthForm(Form):
     def __init__(self, request=None, *args, **kwargs):
         self.request = request
         self.user_cache = None
-        super(CustomAuthForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def clean(self):
         token = self.cleaned_data.get('token')
@@ -34,7 +34,7 @@ class TokenOnlyAuthForm(Form):
     def __init__(self, request=None, *args, **kwargs):
         self.request = request
         self.user_cache = None
-        super(TokenOnlyAuthForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def clean_token(self):
         token = self.cleaned_data.get('token')

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # django-ratelimit-backend documentation build configuration file, created by
 # sphinx-quickstart on Tue Oct 18 13:27:32 2011.
@@ -42,8 +41,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'django-ratelimit-backend'
-copyright = u'2011-{0}, Bruno Renié'.format(datetime.datetime.today().year)
+project = 'django-ratelimit-backend'
+copyright = f'2011-{datetime.datetime.today().year}, Bruno Renié'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -180,8 +179,8 @@ htmlhelp_basename = 'django-ratelimit-backenddoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'django-ratelimit-backend.tex', u'django-ratelimit-backend Documentation',
-   u'Bruno Renié', 'manual'),
+  ('index', 'django-ratelimit-backend.tex', 'django-ratelimit-backend Documentation',
+   'Bruno Renié', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -213,8 +212,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'django-ratelimit-backend', u'django-ratelimit-backend Documentation',
-     [u'Bruno Renié'], 1)
+    ('index', 'django-ratelimit-backend', 'django-ratelimit-backend Documentation',
+     ['Bruno Renié'], 1)
 ]
 
 DIRECTORIES = (

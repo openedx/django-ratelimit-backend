@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import warnings
 
 from django.contrib.auth import get_user, get_user_model
@@ -25,7 +24,7 @@ class RateLimitTests(TestCase):
         self.assertContains(response, 'password')
 
         wrong_data = {
-            'username': u'hï',
+            'username': 'hï',
             'password': 'suspicious attempt',
         }
         # 30 failing attempts are allowed
@@ -49,7 +48,7 @@ class RateLimitTests(TestCase):
         self.assertContains(response, 'password')
 
         wrong_data = {
-            'username': u'hï',
+            'username': 'hï',
             'password': 'suspicious attempt',
         }
         # 30 failing attempts are allowed
@@ -74,7 +73,7 @@ class RateLimitTests(TestCase):
         self.assertContains(response, 'password')
 
         wrong_data = {
-            'username': u'hï',
+            'username': 'hï',
             'password': 'suspicious attempt',
         }
         # 30 failing attempts are allowed
@@ -97,7 +96,7 @@ class RateLimitTests(TestCase):
         login_url = response.request['PATH_INFO']
         self.assertContains(response, 'username')
         wrong_data = {
-            'username': u'hî',
+            'username': 'hî',
             'password': 'suspicious attempt',
         }
         # 30 failing attempts are allowed
@@ -131,7 +130,7 @@ class RateLimitTests(TestCase):
         url = reverse('login')
 
         wrong_data = {
-            'username': u'ùser1',
+            'username': 'ùser1',
             'password': 'suspicious attempt',
         }
         # 50 failing attempts are allowed
@@ -158,7 +157,7 @@ class RateLimitTests(TestCase):
         self.assertContains(response, 'secret')
 
         wrong_data = {
-            'token': u'hï',
+            'token': 'hï',
             'secret': 'suspicious attempt',
         }
         # 30 failed attempts are allowed
@@ -181,7 +180,7 @@ class RateLimitTests(TestCase):
         """Custom backend with missing username_key"""
         url = reverse('custom_login')
         wrong_data = {
-            'token': u'hï',
+            'token': 'hï',
             'secret': 'suspicious attempt',
         }
         self.assertRaises(KeyError, self.client.post, url, wrong_data)
@@ -191,7 +190,7 @@ class RateLimitTests(TestCase):
     def test_no_username_model_backend(self):
         url = reverse('token_only_login')
         wrong_data = {
-            'token': u'bad_token',
+            'token': 'bad_token',
         }
         User.objects.create_user('foo', 'foo@bar.com', 'pass')
 

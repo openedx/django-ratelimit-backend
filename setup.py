@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
 import ratelimitbackend
 
-with open('README.rst', 'r') as f:
+with open('README.rst') as f:
     long_description = f.read()
 
 
@@ -25,16 +24,14 @@ setup(
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Framework :: Django :: 1.11',
-        'Framework :: Django :: 2.0',
+        'Framework :: Django :: 2.2',
+        'Framework :: Django :: 3.0',
+        'Framework :: Django :: 3.1',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.8',
     ],
     test_suite='runtests.runtests',
     zip_safe=False,
