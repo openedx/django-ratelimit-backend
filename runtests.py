@@ -60,17 +60,21 @@ def setup_test_environment():
                 },
             },
         },
-        "TEMPLATES": [{
-            'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'OPTIONS': {
-                'loaders': (
-                    'django.template.loaders.app_directories.Loader',
-                ),
-                'context_processors': (
-                    'django.contrib.auth.context_processors.auth',
-                ),
+        "TEMPLATES": [
+            {
+                'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                'DIRS': [],
+                'APP_DIRS': True,
+                'OPTIONS': {
+                    'context_processors': [
+                        'django.template.context_processors.debug',
+                        'django.template.context_processors.request',
+                        'django.contrib.auth.context_processors.auth',
+                        'django.contrib.messages.context_processors.messages',
+                    ],
+                },
             },
-        }],
+        ],
     }
     # set up settings for running tests for all apps
     settings.configure(**settings_dict)
